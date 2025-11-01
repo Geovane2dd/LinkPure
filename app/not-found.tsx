@@ -7,39 +7,29 @@ import Footer from './components/Footer';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-blue-950/50 to-slate-950">
+    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-[#e5e5e5]">
       <Navbar />
       
-      <main className="flex-grow flex items-center justify-center pt-16 sm:pt-20 md:pt-28 pb-8 sm:pb-12 md:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center px-3 py-1.5 md:px-4 md:py-2 mb-6 rounded-full bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20 backdrop-blur-sm">
-              <span className="text-xs sm:text-sm md:text-base bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent font-medium">
-                Error 404
-              </span>
+      <main className="flex-grow flex items-center justify-center pt-16 pb-8">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl font-semibold text-white tracking-tight leading-none">
+                404
+              </h1>
+              <div className="w-16 h-px bg-[#2a2a2a] mx-auto" aria-hidden="true"></div>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed max-w-2xl mx-auto font-light">
+                The page you're looking for may have been removed, renamed, or is temporarily unavailable.
+              </p>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 tracking-tight">
-              <span className="text-white">Oops!</span>
-              <span className="relative block mt-2">
-                <span className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-blue-400 blur-2xl opacity-20"></span>
-                <span className="relative bg-gradient-to-r from-emerald-500 to-blue-400 bg-clip-text text-transparent">
-                  Page not found
-                </span>
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12">
-              The page you're looking for may have been removed, renamed, or is temporarily unavailable.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Link 
                 href="/"
-                className="group relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 active:scale-[0.98]"
               >
-                <FontAwesomeIcon icon={faHome} className="h-5 w-5" />
-                Back to Home
+                <FontAwesomeIcon icon={faHome} className="w-4 h-4" />
+                <span>Back to Home</span>
               </Link>
             </div>
           </div>

@@ -5,11 +5,11 @@
   <p>A modern tool to clean tracking parameters from links</p>
 
   <p>
-    <a href="https://g2dev.me">View Demo</a>
+    <a href="https://linkpure.geovanedd.me">View Demo</a>
     ·
-    <a href="https://github.com/Geovane2Dev/LinkPure/issues">Report Bug</a>
+    <a href="https://github.com/geovane2dd/LinkPure/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Geovane2Dev/LinkPure/issues">Request Feature</a>
+    <a href="https://github.com/geovane2dd/LinkPure/issues">Request Feature</a>
   </p>
 </div>
 
@@ -57,7 +57,7 @@ LinkPure is a modern and efficient web tool designed to remove tracking paramete
 1. Clone the repository
 
 ```bash
-git clone https://github.com/GeovaneSec/LinkPure.git
+git clone https://github.com/geovane2dd/LinkPure.git
 ```
 2. Install dependencies
 ```bash
