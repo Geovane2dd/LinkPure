@@ -107,7 +107,6 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow pt-16">
-        {/* Hero Section */}
         <section 
           className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32"
           aria-label="LinkPure - Free Link Cleaner Tool"
@@ -123,7 +122,6 @@ export default function Home() {
               </p>
             </header>
 
-            {/* Tool Section */}
             <div className="max-w-3xl mx-auto mt-8 sm:mt-12 px-2">
               <article className="bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-4 sm:p-6 md:p-8 hover:border-[#2a2a2a] hover:bg-[#121212] transition-all duration-300">
                 <form onSubmit={handleSubmit} className="space-y-6" aria-label="Link cleaning form">
@@ -223,14 +221,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
         <div className="container mx-auto px-4 sm:px-6" aria-hidden="true">
           <div className="max-w-6xl mx-auto">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent"></div>
           </div>
         </div>
 
-        {/* Quick Guide Section */}
         <section 
           className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20" 
           aria-label="Quick Guide"
@@ -277,14 +273,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
         <div className="container mx-auto px-4 sm:px-6" aria-hidden="true">
           <div className="max-w-6xl mx-auto">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent"></div>
           </div>
         </div>
 
-        {/* Supported Platforms Section */}
         <section 
           id="supported-platforms"
           className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32" 
@@ -331,14 +325,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
         <div className="container mx-auto px-4 sm:px-6" aria-hidden="true">
           <div className="max-w-6xl mx-auto">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent"></div>
           </div>
         </div>
 
-        {/* How It Works Section */}
         <section 
           id="how-it-works"
           className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32" 
@@ -425,7 +417,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section 
           className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32" 
           aria-label="Why Choose LinkPure"
@@ -481,14 +472,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
         <div className="container mx-auto px-4 sm:px-6" aria-hidden="true">
           <div className="max-w-6xl mx-auto">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent"></div>
           </div>
         </div>
 
-        {/* Browser Extension Section */}
         <section 
           className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32" 
           aria-label="Browser Extension Coming Soon"

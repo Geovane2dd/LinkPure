@@ -101,9 +101,6 @@ export const metadata: Metadata = {
     description: defaultDescription,
     images: [`${siteUrl}/og-image.png`],
   },
-  verification: {
-    // Adicione suas verificações quando disponíveis
-  },
   category: 'Web Tool',
   classification: 'Privacy Tool',
   other: {
@@ -268,7 +265,6 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href={siteUrl} />
         
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

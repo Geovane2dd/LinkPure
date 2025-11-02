@@ -11,7 +11,6 @@ export default function Navbar() {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const navRef = useRef<HTMLElement>(null);
 
-    // Prevent body scroll when menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = 'hidden';
@@ -24,7 +23,6 @@ export default function Navbar() {
         };
     }, [isMobileMenuOpen]);
 
-    // Handle click outside to close menu
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent | TouchEvent) => {
             const target = event.target as Node;
@@ -51,7 +49,6 @@ export default function Navbar() {
         };
     }, [isMobileMenuOpen]);
 
-    // Handle escape key to close menu
     useEffect(() => {
         const handleEscape = (event: KeyboardEvent) => {
             if (event.key === 'Escape' && isMobileMenuOpen) {
@@ -66,7 +63,6 @@ export default function Navbar() {
         };
     }, [isMobileMenuOpen]);
 
-    // Close menu when window is resized to desktop size
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 768 && isMobileMenuOpen) {
@@ -106,7 +102,6 @@ export default function Navbar() {
                             LinkPure
                         </Link>
 
-                        {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
                             <a 
                                 href="https://geovanedd.me" 
@@ -130,7 +125,6 @@ export default function Navbar() {
                             </a>
                         </div>
 
-                        {/* Mobile Menu Button */}
                         <button 
                             ref={buttonRef}
                             onClick={toggleMenu}
@@ -149,7 +143,6 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
                 <div 
                     className="fixed inset-0 bg-[#0a0a0a]/80 backdrop-blur-sm z-40 md:hidden"
@@ -158,7 +151,6 @@ export default function Navbar() {
                 />
             )}
 
-            {/* Mobile Menu */}
             <div 
                 ref={menuRef}
                 className={`md:hidden fixed top-16 sm:top-20 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-[#1a1a1a] shadow-2xl transition-all duration-300 ease-out ${
