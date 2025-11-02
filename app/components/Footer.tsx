@@ -1,3 +1,21 @@
+/*
+ * LinkPure - A modern tool to clean tracking parameters from links
+ * Copyright (C) 2024 GeovaneDD
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -83,26 +101,46 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[#1a1a1a]">
-          <p className="text-xs text-gray-600 text-center">
-            &copy; {new Date().getFullYear()} LinkPure. Developed by{' '}
-            <a
-              href="https://geovanedd.me"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              GeovaneDD
-            </a>
-            {' · '}
-            <a
-              href="https://github.com/geovane2dd"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              GitHub
-            </a>
-          </p>
+          <div className="text-xs text-gray-600 text-center space-y-2">
+            <p>
+              &copy; {new Date().getFullYear()} LinkPure. Copyright (C) {new Date().getFullYear()} GeovaneDD
+            </p>
+            <p className="text-gray-500 leading-relaxed max-w-3xl mx-auto px-4">
+              This program is free software: you can redistribute it and/or modify it under the terms of the{' '}
+              <a
+                href="https://www.gnu.org/licenses/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200 underline"
+              >
+                GNU General Public License
+              </a>
+              {' '}as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+            </p>
+            <p className="text-gray-500 leading-relaxed max-w-3xl mx-auto px-4">
+              This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+            </p>
+            <p className="text-gray-600 mt-4">
+              Developed by{' '}
+              <a
+                href="https://geovanedd.me"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                GeovaneDD
+              </a>
+              {' · '}
+              <a
+                href="https://github.com/geovane2dd"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                GitHub
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
