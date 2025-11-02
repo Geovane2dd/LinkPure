@@ -51,7 +51,7 @@ Allow: /
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://linkpure.geovanebr.me/sitemap.xml
+Sitemap: https://linkpure.geovanedd.me/sitemap.xml
 
 # Disallow specific paths and files
 Disallow: /api/

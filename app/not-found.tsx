@@ -27,8 +27,9 @@ export default function NotFound() {
               <Link 
                 href="/"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 active:scale-[0.98]"
+                style={{minHeight: '44px'}}
               >
-                <FontAwesomeIcon icon={faHome} className="w-4 h-4" />
+                <FontAwesomeIcon icon={faHome} className="text-base" style={{width: '1em', height: '1em'}} />
                 <span>Back to Home</span>
               </Link>
             </div>

@@ -3,12 +3,38 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    background-color: #0a0a0a;
+    color: #e5e5e5;
+  }
+
   body {
     @apply bg-[#0a0a0a] text-[#e5e5e5] font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
   }
   
   * {
     @apply border-[#1a1a1a];
+  }
+
+  /* Prevent flash of unstyled content */
+  html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Ensure content is visible immediately */
+  main {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  nav {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -34,8 +60,7 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.8s ease-out forwards;
-  opacity: 0;
+  opacity: 1;
 }
 
 /* Smooth scrolling */
@@ -59,4 +84,110 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #2a2a2a;
+}
+
+/* Fix FontAwesome icons to prevent size flash on first frame */
+svg.svg-inline--fa {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  vertical-align: -0.125em;
+}
+
+/* Ensure FontAwesome icons maintain static size from first frame */
+.fa-icon-static {
+  width: 1em !important;
+  height: 1em !important;
+  display: inline-block !important;
+}
+
+/* Fix buttons to prevent size flash on first frame */
+button {
+  display: inline-block;
+  box-sizing: border-box;
+  min-height: 44px; /* Touch target minimum */
+}
+
+/* Ensure buttons maintain static size from first frame */
+button[type="submit"],
+button[type="button"],
+button:not([type]) {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Prevent button size shifts */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Fix button padding to prevent layout shifts */
+.btn-static {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure links styled as buttons also maintain static size */
+a.inline-flex[class*="bg-"],
+a[class*="rounded-lg"][class*="bg-"] {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 40px;
+}
+
+/* Ensure all interactive button-like elements maintain static size */
+button, 
+a[class*="rounded-lg"][class*="bg-"],
+a.inline-flex[class*="rounded"] {
+  box-sizing: border-box;
+}
+
+/* Mobile Navbar Improvements */
+@media (max-width: 767px) {
+  /* Prevent body scroll when mobile menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Improve touch targets on mobile */
+  nav button,
+  nav a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Smooth menu animations */
+  nav [role="dialog"] {
+    will-change: transform, opacity;
+    transform-origin: top;
+  }
+}
+
+/* Professional navbar styling */
+/* Note: nav position is handled by component classes */
+
+/* Improve menu overlay */
+nav + div[aria-hidden="true"] {
+  transition: opacity 0.3s ease-out;
+}
+
+/* Ensure menu items are accessible */
+nav a,
+nav button {
+  outline-offset: 2px;
+}
+
+nav a:focus-visible,
+nav button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
