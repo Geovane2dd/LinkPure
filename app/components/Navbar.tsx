@@ -19,9 +19,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { Menu, Close, GitHub } from '@mui/icons-material';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -105,57 +103,54 @@ export default function Navbar() {
 
     return (
         <>
-            <nav 
+            <nav
                 ref={navRef}
-                className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#1a1a1a]"
+                className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#1a1a1a] shadow-lg"
                 aria-label="Main navigation"
             >
                 <div className="container mx-auto px-4 sm:px-6">
                     <div className="flex justify-between items-center h-16 sm:h-20">
-                        <Link 
-                            href="/" 
-                            className="text-lg sm:text-xl font-semibold text-white transition-opacity duration-200 hover:opacity-80 active:opacity-70 touch-manipulation"
+                        <Link
+                            href="/"
+                            className="text-xl sm:text-2xl font-bold text-white transition-opacity duration-200 hover:opacity-80 active:opacity-70 touch-manipulation"
                             onClick={closeMenu}
                         >
                             LinkPure
                         </Link>
 
-                        <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
-                            <a 
-                                href="https://geovanedd.me" 
+                        <div className="hidden md:flex items-center space-x-4">
+                            <a
+                                href="https://geovanedd.me"
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
-                                className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#1a1a1a] hover:bg-[#252525] border border-[#252525] hover:border-[#2a2a2a] rounded-lg transition-all duration-200 active:scale-[0.98] touch-manipulation"
-                                style={{minHeight: '40px'}}
+                                className="btn-secondary text-sm"
                             >
                                 <span>Website</span>
                             </a>
-                            <a 
-                                href="https://github.com/geovane2dd/LinkPure" 
+                            <a
+                                href="https://github.com/geovane2dd/LinkPure"
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
-                                className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#1a1a1a] hover:bg-[#252525] border border-[#252525] hover:border-[#2a2a2a] rounded-lg transition-all duration-200 active:scale-[0.98] touch-manipulation"
-                                style={{minHeight: '40px'}}
+                                className="flex items-center gap-2 btn-secondary text-sm"
                             >
-                                <FontAwesomeIcon icon={faGithub} className="text-base" style={{width: '1em', height: '1em'}} />
+                                <GitHub className="text-base" />
                                 <span className="hidden lg:inline">GitHub</span>
                                 <span className="lg:hidden">Git</span>
                             </a>
                         </div>
 
-                        <button 
+                        <button
                             ref={buttonRef}
                             onClick={toggleMenu}
-                            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-[#1a1a1a] hover:bg-[#252525] active:bg-[#1a1a1a] border border-[#252525] transition-all duration-200 touch-manipulation"
+                            className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-[#1a1a1a] hover:bg-[#252525] active:bg-[#1a1a1a] border border-[#252525] transition-all duration-200 touch-manipulation"
                             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                             aria-expanded={isMobileMenuOpen}
-                            style={{minWidth: '44px', minHeight: '44px'}}
                         >
-                            <FontAwesomeIcon 
-                                icon={isMobileMenuOpen ? faTimes : faBars}
-                                className="text-lg text-gray-300 transition-transform duration-200"
-                                style={{width: '1em', height: '1em'}}
-                            />
+                            {isMobileMenuOpen ? (
+                                <Close className="text-xl text-gray-300 transition-transform duration-200" />
+                            ) : (
+                                <Menu className="text-xl text-gray-300 transition-transform duration-200" />
+                            )}
                         </button>
                     </div>
                 </div>
@@ -180,14 +175,13 @@ export default function Navbar() {
                 aria-modal="true"
                 aria-label="Mobile navigation menu"
             >
-                <div className="container mx-auto px-4 sm:px-6 py-4 space-y-1">
+                <div className="container mx-auto px-4 sm:px-6 py-6 space-y-2">
                     <a 
                         href="https://geovanedd.me"
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="flex items-center gap-3 px-4 py-3.5 text-base font-medium text-gray-300 hover:text-white hover:bg-[#1a1a1a] active:bg-[#252525] rounded-lg transition-all duration-200 touch-manipulation border border-transparent hover:border-[#252525]"
+                        className="flex items-center gap-3 px-4 py-4 text-base font-medium text-gray-300 hover:text-white hover:bg-[#1a1a1a] active:bg-[#252525] rounded-xl transition-all duration-200 touch-manipulation border border-transparent hover:border-[#252525]"
                         onClick={closeMenu}
-                        style={{minHeight: '48px'}}
                     >
                         <span>Website</span>
                     </a>
@@ -195,11 +189,10 @@ export default function Navbar() {
                         href="https://github.com/geovane2dd/LinkPure"
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="flex items-center gap-3 px-4 py-3.5 text-base font-medium text-gray-300 hover:text-white hover:bg-[#1a1a1a] active:bg-[#252525] rounded-lg transition-all duration-200 touch-manipulation border border-transparent hover:border-[#252525]"
+                        className="flex items-center gap-3 px-4 py-4 text-base font-medium text-gray-300 hover:text-white hover:bg-[#1a1a1a] active:bg-[#252525] rounded-xl transition-all duration-200 touch-manipulation border border-transparent hover:border-[#252525]"
                         onClick={closeMenu}
-                        style={{minHeight: '48px'}}
                     >
-                        <FontAwesomeIcon icon={faGithub} className="text-lg" style={{width: '1em', height: '1em'}} />
+                        <GitHub className="text-lg" />
                         <span>GitHub</span>
                     </a>
                 </div>

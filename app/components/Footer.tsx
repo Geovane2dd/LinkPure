@@ -17,8 +17,7 @@
  */
 
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { GitHub } from '@mui/icons-material';
 
 export default function Footer() {
   return (
@@ -93,7 +92,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[#1a1a1a] hover:bg-[#252525] border border-[#252525] hover:border-[#2a2a2a] rounded-lg transition-all duration-200"
                 style={{minHeight: '44px'}}
               >
-                <FontAwesomeIcon icon={faGithub} className="text-base" style={{width: '1em', height: '1em'}} />
+                <GitHub className="text-base" />
                 <span>GitHub</span>
               </a>
             </div>

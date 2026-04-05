@@ -20,8 +20,18 @@
 import { useState, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy, faCheck, faShoppingBag, faGlobe, faShoppingCart, faVideo, faExternalLinkAlt, faPuzzlePiece, faShieldAlt, faRocket } from '@fortawesome/free-solid-svg-icons';
+import {
+  ContentCopy,
+  Check,
+  ShoppingBag,
+  Language,
+  ShoppingCart,
+  VideoLibrary,
+  OpenInNew,
+  Extension,
+  Shield,
+  RocketLaunch
+} from '@mui/icons-material';
 
 interface ProcessedData {
   url: string;
@@ -34,35 +44,38 @@ const supportedPlatforms = [
   {
     name: 'Amazon',
     description: 'Removes affiliate tags (tag parameter), referral codes, marketing campaign parameters, and other tracking identifiers from Amazon product links. Keep your Amazon links clean and privacy-safe when sharing products with friends.',
-    icon: faShoppingBag,
+    icon: ShoppingBag,
   },
   {
     name: 'AliExpress',
     description: 'Cleans AliExpress links by removing tracking parameters, affiliate codes, and referral identifiers. Protect your privacy when shopping or sharing AliExpress products online.',
-    icon: faGlobe,
+    icon: Language,
   },
   {
     name: 'Mercado Livre',
     description: 'Removes affiliate parameters, tracking codes, and referral information from Mercado Livre product links. Share clean links without compromising your privacy or supporting unwanted affiliate tracking.',
-    icon: faShoppingCart,
+    icon: ShoppingCart,
   },
   {
     name: 'Shopee',
     description: 'Removes affiliate and tracking parameters from Shopee product links. Clean your Shopee URLs to protect your privacy when sharing products or making purchases.',
-    icon: faShoppingBag,
+    icon: ShoppingBag,
   },
   {
     name: 'Banggood',
     description: 'Removes tracking parameters, referral codes, and affiliate identifiers from Banggood links. Keep your Banggood shopping links private and clean.',
-    icon: faShoppingBag,
+    icon: ShoppingBag,
   },
   {
     name: 'YouTube Redirects',
     description: 'Extracts original destination links from YouTube redirect URLs. Resolve YouTube redirects to find the actual destination URL, removing intermediate tracking steps.',
-    icon: faVideo,
+    icon: VideoLibrary,
   },
 ];
 
+/*
+ * LinkPure - A modern tool to clean tracking parameters from links
+ */
 export default function Home() {
   const [inputUrl, setInputUrl] = useState('');
   const [cleanUrl, setCleanUrl] = useState('');
@@ -121,29 +134,29 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-[#e5e5e5]">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#1a1a1a] text-[#e5e5e5]">
       <Navbar />
 
-      <main className="flex-grow pt-16">
-        <section 
+      <main className="flex-grow pt-16 sm:pt-20">
+        <section
           className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32"
           aria-label="LinkPure - Free Link Cleaner Tool"
         >
-          <div className="max-w-4xl mx-auto text-center space-y-8 sm:space-y-12">
-            <header className="space-y-4 sm:space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-tight leading-none px-2">
+          <div className="max-w-5xl mx-auto text-center space-y-8 sm:space-y-12">
+            <header className="space-y-6 sm:space-y-8 animate-fadeIn">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-tight px-2 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
                 LinkPure
               </h1>
-              <div className="w-12 sm:w-16 h-px bg-[#2a2a2a] mx-auto" aria-hidden="true"></div>
-              <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed font-light max-w-2xl mx-auto px-4">
-                Remove <span className="text-white font-medium">tracking parameters</span> and <span className="text-white font-medium">affiliate links</span> from Amazon, AliExpress, Mercado Livre, Shopee, Banggood, and YouTube. Protect your privacy with our free, open-source link cleaning tool.
+              <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-white/20 to-white/5 mx-auto rounded-full"></div>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed font-light max-w-3xl mx-auto px-4">
+                Remove <span className="text-white font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">tracking parameters</span> and <span className="text-white font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">affiliate links</span> from Amazon, AliExpress, Mercado Livre, Shopee, Banggood, and YouTube. Protect your privacy with our free, open-source link cleaning tool.
               </p>
             </header>
 
-            <div className="max-w-3xl mx-auto mt-8 sm:mt-12 px-2">
-              <article className="bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-4 sm:p-6 md:p-8 hover:border-[#2a2a2a] hover:bg-[#121212] transition-all duration-300">
-                <form onSubmit={handleSubmit} className="space-y-6" aria-label="Link cleaning form">
-                  <div>
+            <div className="max-w-4xl mx-auto mt-12 sm:mt-16 px-2">
+              <article className="card p-6 sm:p-8 md:p-10 hover-lift animate-slideIn">
+                <form onSubmit={handleSubmit} className="space-y-8" aria-label="Link cleaning form">
+                  <div className="space-y-4">
                     <label htmlFor="link-input" className="sr-only">
                       Enter URL to clean
                     </label>
@@ -155,7 +168,7 @@ export default function Home() {
                       placeholder="Paste your link with tracking parameters here..."
                       aria-label="Input field for link to clean"
                       aria-describedby="link-help"
-                      className="w-full p-3 sm:p-4 bg-[#1a1a1a] border border-[#252525] rounded-lg text-sm sm:text-base text-white placeholder-gray-600 focus:ring-2 focus:ring-white/10 focus:border-[#2a2a2a] transition-all duration-200"
+                      className="input-primary text-lg"
                       required
                     />
                     <p id="link-help" className="sr-only">
@@ -167,12 +180,12 @@ export default function Home() {
                     type="submit"
                     disabled={isLoading}
                     aria-label={isLoading ? "Processing link" : "Clean tracking parameters from link"}
-                    className="w-full py-3 px-5 text-center rounded-lg bg-white text-black text-base font-medium hover:bg-gray-100 transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 touch-manipulation"
-                    style={{minHeight: '44px'}}
+                    className="btn-primary w-full flex items-center justify-center gap-3 text-lg py-4"
+                    style={{minHeight: '56px'}}
                   >
                     {isLoading ? (
                       <>
-                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
@@ -180,7 +193,7 @@ export default function Home() {
                       </>
                     ) : (
                       <>
-                        <FontAwesomeIcon icon={faShieldAlt} className="text-base" style={{width: '1em', height: '1em'}} aria-hidden="true" />
+                        <Shield className="text-xl" />
                         <span>Clean Link</span>
                       </>
                     )}
@@ -188,47 +201,47 @@ export default function Home() {
                 </form>
 
                 {error && (
-                  <div className="mt-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-                    <p className="text-sm text-red-400">{error}</p>
+                  <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl animate-fadeIn">
+                    <p className="text-red-400">{error}</p>
                   </div>
                 )}
 
                 {cleanUrl && (
-                  <div ref={resultRef} className="mt-6 space-y-4">
-                    <div className="p-4 sm:p-6 bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl">
+                  <div ref={resultRef} className="mt-8 space-y-6 animate-fadeIn">
+                    <div className="card p-6 sm:p-8">
                       {wasYoutubeRedirect && (
-                        <div className="mb-4 p-3 bg-[#1a1a1a] border border-[#252525] rounded-lg">
-                          <div className="flex items-center space-x-2 text-gray-400">
-                            <FontAwesomeIcon icon={faCheck} className="text-base flex-shrink-0" style={{width: '1em', height: '1em'}} />
-                            <span className="text-xs sm:text-sm font-medium">YouTube link processed successfully</span>
+                        <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
+                          <div className="flex items-center space-x-3 text-green-400">
+                            <Check className="text-lg flex-shrink-0" />
+                            <span className="font-medium">YouTube link processed successfully</span>
                           </div>
                         </div>
                       )}
 
-                      <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
-                        <span className="text-xs sm:text-sm font-medium text-gray-400">Link cleaned</span>
-                        <div className="flex items-center space-x-2 flex-shrink-0">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-lg font-semibold text-white">Clean Link</span>
+                        <div className="flex items-center space-x-3">
                           <button
                             onClick={handleOpenUrl}
-                            className="p-2.5 text-gray-600 hover:text-white transition-colors duration-200 rounded touch-manipulation"
+                            className="p-3 text-gray-400 hover:text-white transition-colors duration-200 rounded-xl hover:bg-white/5"
                             title="Open in new tab"
                             aria-label="Open link in new tab"
-                            style={{minWidth: '44px', minHeight: '44px'}}
+                            style={{minWidth: '48px', minHeight: '48px'}}
                           >
-                            <FontAwesomeIcon icon={faExternalLinkAlt} className="text-base" style={{width: '1em', height: '1em'}} />
+                            <OpenInNew className="text-xl" />
                           </button>
                           <button
                             onClick={handleCopy}
-                            className="p-2.5 text-gray-600 hover:text-white transition-colors duration-200 rounded touch-manipulation"
+                            className="p-3 text-gray-400 hover:text-white transition-colors duration-200 rounded-xl hover:bg-white/5"
                             title={copied ? "Copied" : "Copy link"}
                             aria-label={copied ? "Copied" : "Copy link"}
-                            style={{minWidth: '44px', minHeight: '44px'}}
+                            style={{minWidth: '48px', minHeight: '48px'}}
                           >
-                            <FontAwesomeIcon icon={copied ? faCheck : faCopy} className="text-base" style={{width: '1em', height: '1em'}} />
+                            {copied ? <Check className="text-xl text-green-400" /> : <ContentCopy className="text-xl" />}
                           </button>
                         </div>
                       </div>
-                      <div className="font-mono text-xs sm:text-sm break-all text-white bg-[#1a1a1a] p-3 sm:p-4 rounded-lg border border-[#252525] overflow-x-auto select-all">
+                      <div className="font-mono text-sm sm:text-base break-all text-white bg-[#1a1a1a] p-4 sm:p-6 rounded-xl border border-[#252525] overflow-x-auto select-all">
                         {cleanUrl}
                       </div>
                     </div>
@@ -316,24 +329,25 @@ export default function Home() {
                 </p>
               </div>
             </header>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8" role="list">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10" role="list">
               {supportedPlatforms.map((platform, index) => (
-                <article 
-                  key={platform.name} 
-                  className="group relative bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-5 sm:p-6 md:p-8 hover:border-[#2a2a2a] hover:bg-[#121212] transition-all duration-300"
+                <article
+                  key={platform.name}
+                  className="card p-6 sm:p-8 hover-lift group"
                   role="listitem"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex items-start justify-between mb-4 sm:mb-6">
-                    <div className="text-gray-500 text-xl sm:text-2xl group-hover:text-gray-400 transition-colors duration-300" aria-hidden="true">
-                      <FontAwesomeIcon icon={platform.icon} className="text-[20px] sm:text-[24px]" style={{width: '1em', height: '1em'}} />
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="text-gray-400 text-2xl sm:text-3xl group-hover:text-white transition-colors duration-300" aria-hidden="true">
+                      <platform.icon className="text-[24px] sm:text-[28px]" />
                     </div>
                   </div>
 
-                  <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white group-hover:text-gray-100 transition-colors duration-200">
+                  <div className="space-y-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-gray-100 transition-colors duration-200">
                       {platform.name}
                     </h3>
-                    <p className="text-gray-500 leading-relaxed text-xs sm:text-sm group-hover:text-gray-400 transition-colors duration-200">
+                    <p className="text-gray-400 leading-relaxed text-sm sm:text-base group-hover:text-gray-300 transition-colors duration-200">
                       {platform.description}
                     </p>
                   </div>
@@ -504,7 +518,7 @@ export default function Home() {
             <article className="bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-5 sm:p-6 md:p-8 lg:p-12">
               <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-white/10 rounded-xl flex items-center justify-center">
-                  <FontAwesomeIcon icon={faPuzzlePiece} className="text-[24px] sm:text-[32px] text-white" style={{width: '1em', height: '1em'}} aria-hidden="true" />
+                  <Extension className="text-[24px] sm:text-[32px] text-white" />
                 </div>
                 <div className="flex-grow">
                   <header className="mb-4">
@@ -524,7 +538,7 @@ export default function Home() {
                 </p>
                 <div className="bg-[#1a1a1a] border border-[#252525] rounded-lg p-4">
                   <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <FontAwesomeIcon icon={faRocket} className="text-xl" style={{width: '1em', height: '1em'}} aria-hidden="true" />
+                    <RocketLaunch className="text-xl" />
                     Planned Features
                   </h3>
                   <ul className="space-y-2 text-gray-400 text-sm">

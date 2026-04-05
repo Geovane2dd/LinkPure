@@ -28,21 +28,23 @@ LinkPure is a modern and efficient web tool designed to remove tracking paramete
 
 ### 🚀 Features
 
-- 🔒 Privacy-focused link cleaning  
-- ⚡ Instant URL processing  
-- 🎨 Modern and responsive UI  
-- 🌐 Multi-platform support  
-- 📱 Mobile-friendly design  
-- 📋 One-click copy functionality  
-- 🔗 Direct link opening  
-- 🌍 Multi-language support (coming soon)  
+- 🔒 Privacy-focused link cleaning
+- ⚡ Instant URL processing
+- 🎨 Modern and responsive UI with Material UI
+- 🌐 Multi-platform support with comprehensive tracking parameter removal
+- 📱 Mobile-friendly design optimized for all devices
+- 📋 One-click copy functionality
+- 🔗 Direct link opening
+- 🌍 Multi-language support (coming soon)
+- 🎯 Professional, corporate-grade design
+- ⚡ Optimized performance and lightweight bundle  
 
 ### 🛠️ Built With
 
-- [Next.js 15](https://nextjs.org/) – React Framework  
-- [TailwindCSS](https://tailwindcss.com/) – CSS Framework  
-- [TypeScript](https://www.typescriptlang.org/) – Programming Language  
-- [Font Awesome](https://fontawesome.com/) – Icons  
+- [Next.js 15](https://nextjs.org/) – React Framework
+- [TailwindCSS](https://tailwindcss.com/) – CSS Framework
+- [TypeScript](https://www.typescriptlang.org/) – Programming Language
+- [Material UI](https://mui.com/) – Icons and Components
 - [Geist Font](https://vercel.com/font) – Typography  
 
 ## 🚀 Getting Started

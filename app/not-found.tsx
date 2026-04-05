@@ -18,8 +18,9 @@
 
 'use client';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import {
+  Home as HomeIcon,
+} from '@mui/icons-material';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -47,7 +48,7 @@ export default function NotFound() {
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 active:scale-[0.98]"
                 style={{minHeight: '44px'}}
               >
-                <FontAwesomeIcon icon={faHome} className="text-base" style={{width: '1em', height: '1em'}} />
+                <HomeIcon className="text-base" />
                 <span>Back to Home</span>
               </Link>
             </div>

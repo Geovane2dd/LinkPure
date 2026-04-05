@@ -19,11 +19,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-config.autoAddCss = false;
+import ThemeWrapper from './components/ThemeWrapper';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -301,7 +298,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} bg-[#0a0a0a] text-[#e5e5e5] min-h-screen flex flex-col antialiased`}>
-        {children}
+        <ThemeWrapper>
+          {children}
+        </ThemeWrapper>
         <SpeedInsights />
       </body>
     </html>
